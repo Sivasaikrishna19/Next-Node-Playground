@@ -1,4 +1,4 @@
-const Todo = require('../models/todo'); // Update the path to the Todo model if necessary
+const Todo = require('../models/todo');
 
 // Create a new todo
 const createTodo = async (todoData) => {
@@ -12,14 +12,22 @@ const createTodo = async (todoData) => {
 };
 
 // Get all todos
-const getAllTodos = async () => {
-  try {
-    const todos = await Todo.find({});
-    return todos;
-  } catch (error) {
-    throw error;
-  }
-};
+const getAllTodos = async (params) => {
+    try {
+      const { priority } = params;
+      const query = {};
+  
+      if (priority) {
+        query.priority = priority;
+      }
+      const todos = await Todo.find(query);
+  
+      return todos;
+    } catch (error) {
+      throw error;
+    }
+  };
+  
 
 // Delete a todo by ID
 const deleteTodo = async (todoId) => {

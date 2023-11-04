@@ -10,6 +10,7 @@ export default function Home() {
   const [todo, setTodo] = useState<string>();
   const [priority, setPriority] = useState<string>();
   const [deadline, setDeadline] = useState<string>();
+  const [filter, setFilter] = useState<string>();
 
   const postTodoFunction = () => {
     axios
@@ -26,10 +27,12 @@ export default function Home() {
       });
   };
   const getAllTodos = () => {
-    axios.get("http://localhost:5000/todos").then((res) => {
-      setTodos(res.data);
-      console.log(res);
-    });
+    axios
+      .get("http://localhost:5000/todos", { params: { priority: filter } })
+      .then((res) => {
+        setTodos(res.data);
+        console.log(res);
+      });
   };
   const deleteTodo = (id: string) => {
     axios
@@ -45,7 +48,7 @@ export default function Home() {
 
   useEffect(() => {
     getAllTodos();
-  }, []);
+  }, [filter]);
 
   const getColor = (priority: string) => {
     if (priority == "low") return "cyan";
@@ -105,6 +108,23 @@ export default function Home() {
         >
           Add
         </Button>
+      </div>
+      <div className="flex  justify-center w-[50%] items-center m-auto my-4">
+        <Select
+          placeholder="Filter"
+          // className="w-full"
+          style={{ width: "160px" }}
+          allowClear
+          options={[
+            { value: "low", label: "Low" },
+            { value: "medium", label: "Medium" },
+            { value: "high", label: "High" },
+          ]}
+          onChange={(e) => {
+            console.log(e);
+            setFilter(e);
+          }}
+        />
       </div>
       <div className="m-auto mt-4 w-[60%]">
         {todos?.map((todo) => {

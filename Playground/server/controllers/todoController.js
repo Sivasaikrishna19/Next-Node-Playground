@@ -3,7 +3,7 @@ const todosService = require('../services/todosService'); // Adjust the path as 
 const router = express.Router();
 
 
-// Create a new todo
+
 router.post('/create', async (req, res) => {
   try {
     const result = await todosService.createTodo(req.body);
@@ -15,8 +15,9 @@ router.post('/create', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
+
   try {
-    const todos = await todosService.getAllTodos();
+    const todos = await todosService.getAllTodos(req.query);
     res.send(todos);
   } catch (error) {
     console.error(error);
