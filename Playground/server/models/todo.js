@@ -10,10 +10,10 @@ const todoSchema = new Schema({
         type:String,
         required:true
     },
-    deadline:{
-        type:Date,
-        required:true
-    }
+    // deadline:{
+    //     type:Date,
+    //     required:true
+    // }
 },{timestamps:true})
 const Todo = mongoose.model('Todo',todoSchema);
 module.exports = Todo

@@ -75,7 +75,7 @@ export default function Home() {
           }}
         />{" "}
         <Select
-          className="ml-2"
+          className="mx-2"
           placeholder="Select Priority"
           value={priority}
           onChange={(e) => {
@@ -87,14 +87,14 @@ export default function Home() {
             { value: "high", label: "High" },
           ]}
         />
-        <DatePicker
-          className="ml-2 w-full"
+        {/* <DatePicker
+          className="w-full"
           placeholder="Deadline"
           onChange={(e) => {
+            console.log(e);
             setDeadline(e?.toISOString());
           }}
-          // value={dayjs(deadline)}
-        />
+        /> */}
         <Button
           type="primary"
           className="ml-2"
@@ -125,9 +125,9 @@ export default function Home() {
                   </span>
                   <span className="ml-2">{todo.title}</span>
                 </div>
-                <div className="flex items-center mr-4 pr-12">
+                {/* <div className="flex items-center mr-4 pr-12">
                   By {dayjs(todo.deadline).format("MMMM D, YYYY")}
-                </div>
+                </div> */}
               </div>
             </Badge.Ribbon>
           );
