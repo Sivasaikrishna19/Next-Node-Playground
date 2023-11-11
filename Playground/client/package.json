@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
+    "@seatsio/seatsio-react": "^14.3.0",
     "antd": "^5.10.2",
     "axios": "^1.5.1",
     "dayjs": "^1.11.10",

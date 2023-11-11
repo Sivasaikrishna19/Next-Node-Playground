@@ -3,5 +3,8 @@
 @tailwind utilities;
 
 
-
+.test:hover{
+    transform: rotate(30deg);
+    scale: 1.5;
+}
 

@@ -153,6 +153,12 @@ export default function Home() {
           );
         })}
       </div>
+      {/* <div className="w-full h-[600px] flex items-center justify-center m-auto">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7UgWHl3IfqhAR5NFAnGXszxNyv6yrnsuuLFgQcmNZdJO_s2yHSg1GUMi0dsuY4gmbtYA&usqp=CAU"
+          className="test"
+        />
+      </div> */}
     </div>
   );
 }
